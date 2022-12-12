@@ -1,0 +1,12 @@
+#!/bin/sh
+
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+git checkout modified
+git rebase master
+
+#git push -f
+#docker buildx build --no-cache -t pawelszopinski/transmission --platform=linux/amd64 .
+#docker push pawelszopinski/transmission:latest
