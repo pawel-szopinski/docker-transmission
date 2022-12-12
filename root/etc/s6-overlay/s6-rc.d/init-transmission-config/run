@@ -2,8 +2,7 @@
 # shellcheck shell=bash
 
 # make folders
-mkdir -p \
-    /downloads/{complete,incomplete} /watch
+mkdir -p /watch
 
 # copy config
 if [[ ! -f /config/settings.json ]]; then
@@ -51,14 +50,6 @@ lsiown abc:abc \
 
 if [[ "$(stat -c '%U' /downloads)" != "abc" ]]; then
     lsiown abc:abc /downloads
-fi
-
-if [[ "$(stat -c '%U' /downloads/complete)" != "abc" ]]; then
-    lsiown abc:abc /downloads/complete
-fi
-
-if [[ "$(stat -c '%U' /downloads/incomplete)" != "abc" ]]; then
-    lsiown abc:abc /downloads/incomplete
 fi
 
 if [[ "$(stat -c '%U' /watch)" != "abc" ]]; then
